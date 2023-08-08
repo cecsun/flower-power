@@ -1,0 +1,33 @@
+header {
+    background-color: rgba(130, 192, 92, 1);
+    padding: 30px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'PT Serif', serif;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 2px;
+    display: inline-block;
+    margin-inline-end: 50px;
+    font-size: 20px;
+    padding: 10px 20px;
+}
+
+nav a:hover {
+    color: black;
+    background-color: white;
+    opacity: 0.5;
+    border-radius: 5px;
+}
+
+nav {
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* padding: 0 10px; */
+    white-space: nowrap;
+}
+
+

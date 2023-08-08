@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.index.html {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'PT Serif', serif; 
+}
+
+.image-text img {
+    width: 50%;
+    height: 100%;
+    /* object-fit: cover; */
+    float: left;
+    margin-right: 10px;
+    /* margin-left: 100px; */
+}
+
