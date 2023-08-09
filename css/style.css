@@ -9,17 +9,42 @@ html, body {
     width: 100%;
 }
 
-.index.html {
+.index.html, .flowers.html {
     font-family: 'Montserrat', sans-serif;
     font-family: 'PT Serif', serif; 
 }
 
-.image-text img {
-    width: 50%;
-    height: 100%;
-    /* object-fit: cover; */
-    float: left;
-    margin-right: 10px;
-    /* margin-left: 100px; */
+.logo {
+    text-align: center;
+}
+
+.logo img {
+    height: auto;
+    width: 75vw;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px; */
+}
+
+.image-item {
+    flex-basis: calc(25% - 20px);
+    margin: 10px;
+    text-align: center;
+}
+
+.image-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.image-item p {
+    margin-top: 5px;
 }
 
