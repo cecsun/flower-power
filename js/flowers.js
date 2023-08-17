@@ -17,7 +17,7 @@ async function flowers() {
 
         div.className = "image-item";
 
-        image.src = products[i].images[0].thumbnails;
+        image.src = products[i].images[0].thumbnail;
         image.alt = products[i].name;
 
         p.innerHTML = products[i].prices.price/100 + "$";
