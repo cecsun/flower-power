@@ -6,8 +6,6 @@ function compareByPrice(a, b) {
 
 let flowersHTML = document.querySelector(".image-container");
 
-
-
 async function flowers() {
     let products = await fetchProducts()
     products = products.sort(compareByPrice)
@@ -19,7 +17,7 @@ async function flowers() {
 
         div.className = "image-item";
 
-        image.src = products[i].images[0].src;
+        image.src = products[i].images[0].thumbnails;
         image.alt = products[i].name;
 
         p.innerHTML = products[i].prices.price/100 + "$";
