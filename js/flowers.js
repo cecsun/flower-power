@@ -1,7 +1,7 @@
 import { fetchProducts } from "./api.js";
 
 function compareByPrice(a, b) {
-    return a.prices.price - b.prices.price; 
+    return a.regular_price - b.regular_price; 
 } 
 
 let flowersHTML = document.querySelector(".image-container");
@@ -17,10 +17,10 @@ async function flowers() {
 
         div.className = "image-item";
 
-        image.src = products[i].images[0].thumbnail;
+        image.src = products[i].images[0].src;
         image.alt = products[i].name;
 
-        p.innerHTML = products[i].prices.price/100 + "$";
+        p.innerHTML = products[i].regular_price + "$";
 
         div.appendChild(image);
         div.appendChild(p);
