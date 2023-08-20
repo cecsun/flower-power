@@ -21,26 +21,27 @@ const consumerSecret = secret;
 // API endpoint
 const httpMethod = 'GET'
 const url = all;
-const parameters = {
-		oauth_consumer_key : consumerKey,
-		oauth_nonce : generateRandomString(32),
-		oauth_timestamp : Date.now().toString().substring(0, 10),
-		oauth_signature_method : 'HMAC-SHA1',
-	}
 
-	// generates a RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash
-	const encodedSignature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret)
-	// generates a BASE64 encode HMAC-SHA1 hash. Not supported by woocommerce
-	// const signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret,
-	// 	{ encodeSignature: false});
-
-parameters.oauth_signature = encodedSignature
-const options = {
-  method: httpMethod,
-};
 
 // A helper function to fetch data from the API
 async function fetchData(url) {
+    const parameters = {
+      oauth_consumer_key : consumerKey,
+      oauth_nonce : generateRandomString(32),
+      oauth_timestamp : Date.now().toString().substring(0, 10),
+      oauth_signature_method : 'HMAC-SHA1',
+    }
+
+    // generates a RFC 3986 encoded, BASE64 encoded HMAC-SHA1 hash
+    const encodedSignature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret)
+    // generates a BASE64 encode HMAC-SHA1 hash. Not supported by woocommerce
+    // const signature = oauthSignature.generate(httpMethod, url, parameters, consumerSecret,
+    // 	{ encodeSignature: false});
+
+    parameters.oauth_signature = encodedSignature
+    const options = {
+      method: httpMethod,
+    };
     const payload = await fetch(url + "?" + new URLSearchParams(parameters), options);
     const data = await payload.json();
     console.log(data)
