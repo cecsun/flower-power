@@ -9,7 +9,7 @@ html, body {
     width: 100%;
 }
 
-.index.html, .flowers.html {
+.index.html, .flowers.html, .product-detail.html {
     font-family: 'Montserrat', sans-serif;
     font-family: 'PT Serif', serif; 
 }
@@ -23,28 +23,43 @@ html, body {
     width: 75vw;
 }
 
-.image-container {
-    display: flex;
+.flowers {
+    margin-bottom: 20px;
+}
+
+.image-container, .image-container-featured {
+    /* display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    /* display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px; */
+    flex-wrap: wrap; */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* gap: 5px; */
 }
 
 .image-item {
-    flex-basis: calc(25% - 20px);
-    margin: 10px;
+    /* display: inline-block;
+    flex-basis: calc(20% - 20px); */
+    /* margin: 10px; */
     text-align: center;
 }
 
 .image-item img {
-    max-width: 100%;
-    height: auto;
+    /* max-width: 100%;
+    height: auto; */
+    width: 200px;
+    height: 220px;
+    object-fit: cover;
+    margin: 5px;
 }
 
 .image-item p {
     margin-top: 5px;
 }
 
+.flowers h1, .flowers h2 {
+    font-size: 30px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
