@@ -5,29 +5,6 @@ function compareByPrice(a, b) {
 } 
 
 let flowersHTML = document.querySelector(".image-container");
-
-async function showAllProducts() {
-    let products = await fetchProducts();
-    // products = products.sort(compareByPrice)
-    console.log(products);
-    for (let i = 0; i < products.length; i++) {
-        let div = document.createElement("div");
-        let image = document.createElement("img");
-        let p = document.createElement("p");
-
-        div.className = "image-item";
-
-        image.src = products[i].images[0].src;
-        image.alt = products[i].name;
-
-        p.innerHTML = products[i].regular_price + "$";
-
-        div.appendChild(image);
-        div.appendChild(p);
-        flowersHTML.appendChild(div);
-    }
-}
-
 let flowersHTMLFeatured = document.querySelector(".image-container-featured");
 
 
@@ -37,30 +14,30 @@ async function showFeaturedProducts() {
     for (let i = 0; i < products.length; i++) {
         const product = products[i];
 
+        let div = document.createElement("div");
+        let image = document.createElement("img");
+        let p = document.createElement("p");
+        let a = document.createElement("a");
+        div.className = "image-item";
+
+        image.src = product.images[0].src;
+        image.alt = product.name;
+
+        p.innerHTML = product.regular_price + "$";
+        a.href = "product-detail.html?" + new URLSearchParams({id: product.id});
+        a.appendChild(image);
+        div.appendChild(a);
+        div.appendChild(p);
+
+        flowersHTML.appendChild(div);
+
+
         if (product.featured) {
-            let div = document.createElement("div");
-            let image = document.createElement("img");
-            let p = document.createElement("p");
-            let a = document.createElement("a");
-            div.className = "image-item";
-
-            image.src = product.images[0].src;
-            image.alt = product.name;
-
-            p.innerHTML = product.regular_price + "$";
-            a.href = "product-detail.html?" + new URLSearchParams({id: product.id});
-            a.appendChild(image);
-            
-
-            div.appendChild(a);
-            div.appendChild(p);
-            flowersHTMLFeatured.appendChild(div);
-
+            let featuredDiv = div.cloneNode(true)
+            flowersHTMLFeatured.appendChild(featuredDiv);
         } 
     }
-
 }
 
-showAllProducts();
 showFeaturedProducts();
 
